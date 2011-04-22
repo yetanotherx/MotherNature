@@ -62,6 +62,8 @@ public class MotherNature extends JavaPlugin {
             world.setWeatherDuration(0);
         }
 
+        MotherNatureListeners.load(this);
+
         //Print that the plugin has been enabled!
         log.info("Plugin enabled! (version " + this.getDescription().getVersion() + ")");
         log.debug("Debug mode enabled!");

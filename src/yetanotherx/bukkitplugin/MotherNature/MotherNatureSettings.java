@@ -17,6 +17,8 @@ public class MotherNatureSettings {
     public static int thunderLength = 30; //30 seconds
     public static int thunderInterval = 60; //1 minutes
 
+    public static int lightningWand = 317;
+
     /**
      * Bukkit config class
      */
@@ -52,6 +54,8 @@ public class MotherNatureSettings {
             thunderHash.put( "interval", thunderInterval );
             thunderHash.put( "duration", thunderLength );
             config.setProperty("mothernature.thunder", thunderHash);
+
+            config.setProperty("mothernature.wand", lightningWand);
             
             config.save();
         }
@@ -75,6 +79,8 @@ public class MotherNatureSettings {
 
         thunderInterval = config.getInt("mothernature.rain.interval", thunderInterval);
         thunderLength = config.getInt("mothernature.rain.duration", thunderLength);
+
+        lightningWand = config.getInt("mothernature.wand", lightningWand);
 
 
     }

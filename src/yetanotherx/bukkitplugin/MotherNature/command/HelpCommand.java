@@ -1,6 +1,7 @@
 package yetanotherx.bukkitplugin.MotherNature.command;
 
 import java.util.ArrayList;
+import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -31,6 +32,8 @@ public class HelpCommand implements CommandExecutor {
                 player.sendMessage(commandString);
             }
 
+        } else {
+            player.sendMessage(ChatColor.RED + "You do not have permission to use this command.");
         }
 
 

@@ -25,6 +25,8 @@ public class ReloadCommand implements CommandExecutor {
 	if( MotherNaturePermissions.has( player, "mothernature.command.reload" ) ) {
             MotherNatureSettings.load();
             player.sendMessage( ChatColor.AQUA + "Mother Nature Settings reloaded" );
+        } else {
+            player.sendMessage(ChatColor.RED + "You do not have permission to use this command.");
         }
 
 	return true;

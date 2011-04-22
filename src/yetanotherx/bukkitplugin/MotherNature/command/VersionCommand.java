@@ -20,6 +20,8 @@ public class VersionCommand implements CommandExecutor {
     public boolean onCommand(CommandSender sender, Command command, String commandLabel, String[] args) {
         if (MotherNaturePermissions.has((Player) sender, "mothernature.command.version", false)) {
             sender.sendMessage("You're running: " + ChatColor.AQUA.toString() + parent.getDescription().getName() + " version " + parent.getDescription().getVersion() );
+        } else {
+            sender.sendMessage(ChatColor.RED + "You do not have permission to use this command.");
         }
 
         return true;

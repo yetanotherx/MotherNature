@@ -24,15 +24,13 @@ public class MotherNatureThread implements Runnable {
 
                 Thread.sleep(5000); //5 seconds
 
-                if ((rainSteps * 5) >= MotherNatureSettings.rainInterval) { // 10 seconds
-                    parent.getServer().broadcastMessage("Raining!");
+                if ( (rainSteps * 5) >= MotherNatureSettings.rainInterval) { // 10 seconds
 
                     if( rainIntSteps == 0 ) {
                         MotherNature.log.info("Server is now raining.");
                     }
 
                     if ((rainIntSteps * 5) >= MotherNatureSettings.rainLength) {
-                        parent.getServer().broadcastMessage("No longer Raining!");
                         MotherNature.log.info("Server is no longer raining.");
                         rainIntSteps = 0;
                         rainSteps = 0;

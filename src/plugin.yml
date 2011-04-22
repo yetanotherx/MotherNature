@@ -1,6 +1,6 @@
 name: MotherNature
 main: yetanotherx.bukkitplugin.MotherNature.MotherNature
-version: 0.1
+version: 1.0
 commands:
     mn:
         description: Adjust the weather

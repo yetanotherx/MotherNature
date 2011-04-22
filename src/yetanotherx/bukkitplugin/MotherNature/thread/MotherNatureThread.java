@@ -28,12 +28,7 @@ public class MotherNatureThread implements Runnable {
             try {
 
                 Thread.sleep(5000); //5 seconds
-
-                System.out.println(rainSteps);
-                System.out.println(rainIntSteps);
-                System.out.println(thunderSteps);
-                System.out.println(thunderIntSteps);
-
+                
                 if ((rainSteps * 5) >= MotherNatureSettings.rainInterval) { // 10 seconds
 
                     if (rainIntSteps == 0) {

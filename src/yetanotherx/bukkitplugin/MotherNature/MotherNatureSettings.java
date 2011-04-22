@@ -14,6 +14,8 @@ public class MotherNatureSettings {
 
     public static int rainLength = 2*60; //2 minutes
     public static int rainInterval = 10*60; //10 minutes
+    public static int thunderLength = 30; //30 seconds
+    public static int thunderInterval = 60; //1 minutes
 
     /**
      * Bukkit config class
@@ -45,6 +47,11 @@ public class MotherNatureSettings {
             rainHash.put( "interval", rainInterval );
             rainHash.put( "duration", rainLength );
             config.setProperty("mothernature.rain", rainHash);
+
+            HashMap<String, Integer> thunderHash = new HashMap<String, Integer>();
+            thunderHash.put( "interval", thunderInterval );
+            thunderHash.put( "duration", thunderLength );
+            config.setProperty("mothernature.thunder", thunderHash);
             
             config.save();
         }
@@ -65,6 +72,10 @@ public class MotherNatureSettings {
         
         rainInterval = config.getInt("mothernature.rain.interval", rainInterval);
         rainLength = config.getInt("mothernature.rain.duration", rainLength);
+
+        thunderInterval = config.getInt("mothernature.rain.interval", thunderInterval);
+        thunderLength = config.getInt("mothernature.rain.duration", thunderLength);
+
 
     }
 

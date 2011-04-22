@@ -29,6 +29,10 @@ public class MotherNatureHelp {
         helpCommands.add(new String[]{"mn help", "Show this message", "mothernature.command.help", "anyone"});
         helpCommands.add(new String[]{"mn version", "Show the current MotherNature version", "mothernature.command.version", "anyone"});
         helpCommands.add(new String[]{"mn reload", "Reload the MotherNature config", "mothernature.command.reload"});
+        helpCommands.add(new String[]{"mn rain", "Tells the current world to rain", "mothernature.command.rain"});
+        helpCommands.add(new String[]{"mn thunder", "Tells the current world to thunder", "mothernature.command.thunder"});
+        helpCommands.add(new String[]{"mn lightning", "Make a bolt of lightning!", "mothernature.command.lightning"});
+        helpCommands.add(new String[]{"mn sun", "Tells the current world to be sunny", "mothernature.command.sun"});
 
     }
 

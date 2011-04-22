@@ -6,8 +6,11 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import yetanotherx.bukkitplugin.MotherNature.command.HelpCommand;
+import yetanotherx.bukkitplugin.MotherNature.command.LightningCommand;
 import yetanotherx.bukkitplugin.MotherNature.command.RainCommand;
 import yetanotherx.bukkitplugin.MotherNature.command.ReloadCommand;
+import yetanotherx.bukkitplugin.MotherNature.command.SunCommand;
+import yetanotherx.bukkitplugin.MotherNature.command.ThunderCommand;
 import yetanotherx.bukkitplugin.MotherNature.command.VersionCommand;
 
 public class MotherNatureCommand implements CommandExecutor {
@@ -46,6 +49,9 @@ public class MotherNatureCommand implements CommandExecutor {
         this.registerExecutor("reload", new ReloadCommand(parent));
         this.registerExecutor("help", new HelpCommand(parent));
         this.registerExecutor("rain", new RainCommand(parent));
+        this.registerExecutor("thunder", new ThunderCommand(parent));
+        this.registerExecutor("lightning", new LightningCommand(parent));
+        this.registerExecutor("sun", new SunCommand(parent));
 
 
         parent.getCommand("mn").setExecutor(this);

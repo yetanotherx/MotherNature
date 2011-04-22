@@ -8,6 +8,11 @@ public class MotherNatureThread implements Runnable {
 
     public boolean interrupted = false;
     private MotherNature parent;
+    
+    public static int rainSteps = 0; // 1 step = 5 seconds
+    public static int rainIntSteps = 0;
+    public static int thunderSteps = 0; // 1 step = 5 seconds
+    public static int thunderIntSteps = 0;
 
     public MotherNatureThread(MotherNature parent) {
 
@@ -16,17 +21,18 @@ public class MotherNatureThread implements Runnable {
 
     public void run() {
 
-        int rainSteps = 0; // 1 step = 5 seconds
-        int rainIntSteps = 0;
 
-        int thunderSteps = 0; // 1 step = 5 seconds
-        int thunderIntSteps = 0;
 
         while (true) {
 
             try {
 
                 Thread.sleep(5000); //5 seconds
+
+                System.out.println(rainSteps);
+                System.out.println(rainIntSteps);
+                System.out.println(thunderSteps);
+                System.out.println(thunderIntSteps);
 
                 if ((rainSteps * 5) >= MotherNatureSettings.rainInterval) { // 10 seconds
 
@@ -48,6 +54,33 @@ public class MotherNatureThread implements Runnable {
                         rainSteps = 0;
                     } else {
                         rainIntSteps++;
+                    }
+
+
+                    if ((thunderSteps * 5) >= MotherNatureSettings.thunderInterval) { // 10 seconds
+
+                        if (thunderIntSteps == 0) {
+                            for (World world : parent.getServer().getWorlds()) {
+                                world.setThundering(true);
+                            }
+                            MotherNature.log.info("Server is now thundering.");
+                        }
+
+                        if ((thunderIntSteps * 5) >= MotherNatureSettings.thunderLength) {
+                            for (World world : parent.getServer().getWorlds()) {
+                                world.setThundering(false);
+                            }
+                            MotherNature.log.info("Server is no longer thundering.");
+                            thunderIntSteps = 0;
+                            thunderSteps = 0;
+                        } else {
+                            thunderIntSteps++;
+                        }
+                    } else {
+                        for (World world : parent.getServer().getWorlds()) {
+                            world.setThundering(false);
+                        }
+                        thunderSteps++;
                     }
 
 

@@ -1,6 +1,7 @@
 package yetanotherx.bukkitplugin.MotherNature;
 
 //Bukkit imports
+import org.bukkit.World;
 import org.bukkit.plugin.java.JavaPlugin;
 import yetanotherx.bukkitplugin.MotherNature.exception.ShutdownException;
 import yetanotherx.bukkitplugin.MotherNature.thread.MotherNatureThread;
@@ -54,6 +55,12 @@ public class MotherNature extends JavaPlugin {
         log.debug("Initiating threads");
         thread = new Thread( new MotherNatureThread(this), "mn_thread" );
         thread.start();
+
+        log.debug("Disabling vanilla weather");
+        for( World world : getServer().getWorlds() ) {
+            world.setThunderDuration(0);
+            world.setWeatherDuration(0);
+        }
 
         //Print that the plugin has been enabled!
         log.info("Plugin enabled! (version " + this.getDescription().getVersion() + ")");

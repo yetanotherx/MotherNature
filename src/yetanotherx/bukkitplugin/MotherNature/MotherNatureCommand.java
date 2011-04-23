@@ -11,6 +11,7 @@ import yetanotherx.bukkitplugin.MotherNature.command.RainCommand;
 import yetanotherx.bukkitplugin.MotherNature.command.ReloadCommand;
 import yetanotherx.bukkitplugin.MotherNature.command.SunCommand;
 import yetanotherx.bukkitplugin.MotherNature.command.ThunderCommand;
+import yetanotherx.bukkitplugin.MotherNature.command.UmbrellaCommand;
 import yetanotherx.bukkitplugin.MotherNature.command.VersionCommand;
 
 public class MotherNatureCommand implements CommandExecutor {
@@ -52,7 +53,7 @@ public class MotherNatureCommand implements CommandExecutor {
         this.registerExecutor("thunder", new ThunderCommand(parent));
         this.registerExecutor("lightning", new LightningCommand(parent));
         this.registerExecutor("sun", new SunCommand(parent));
-
+        this.registerExecutor("umbrella", new UmbrellaCommand(parent));
 
         parent.getCommand("mn").setExecutor(this);
 

@@ -1,6 +1,8 @@
 package yetanotherx.bukkitplugin.MotherNature;
 
 //Bukkit imports
+import com.Android.magiccarpet.Carpet;
+import java.util.HashMap;
 import org.bukkit.World;
 import org.bukkit.plugin.java.JavaPlugin;
 import yetanotherx.bukkitplugin.MotherNature.exception.ShutdownException;
@@ -16,7 +18,15 @@ public class MotherNature extends JavaPlugin {
      * Command handler instance
      */
     private MotherNatureCommand commandHandler;
+
     private Thread thread;
+
+    /**
+     * Umbrella list
+     */
+    public static HashMap<String, Carpet> umbrellas = new HashMap<String, Carpet>();
+
+    public MotherNatureListeners listeners;
 
     /**
      * Outputs a message when disabled
@@ -62,7 +72,7 @@ public class MotherNature extends JavaPlugin {
             world.setWeatherDuration(0);
         }
 
-        MotherNatureListeners.load(this);
+        this.listeners = MotherNatureListeners.load(this);
 
         //Print that the plugin has been enabled!
         log.info("Plugin enabled! (version " + this.getDescription().getVersion() + ")");

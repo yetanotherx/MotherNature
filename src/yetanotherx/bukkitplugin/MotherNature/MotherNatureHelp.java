@@ -33,6 +33,7 @@ public class MotherNatureHelp {
         helpCommands.add(new String[]{"mn thunder", "Tells the current world to thunder", "mothernature.command.thunder"});
         helpCommands.add(new String[]{"mn lightning", "Make a bolt of lightning!", "mothernature.command.lightning"});
         helpCommands.add(new String[]{"mn sun", "Tells the current world to be sunny", "mothernature.command.sun"});
+        helpCommands.add(new String[]{"mn umbrella", "Gives you an umbrella over your head", "mothernature.command.umbrella"});
 
     }
 

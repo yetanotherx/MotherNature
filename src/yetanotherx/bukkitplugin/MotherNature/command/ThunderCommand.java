@@ -27,8 +27,8 @@ public class ThunderCommand implements CommandExecutor {
             player.getWorld().setStorm(true);
             player.getWorld().setThundering(true);
 
-            MotherNatureThread.thunderSteps = MotherNatureSettings.thunderInterval;
-            MotherNatureThread.rainSteps = MotherNatureSettings.rainInterval;
+            MotherNatureThread.thunderSteps = MotherNatureSettings.thunderInterval / 5;
+            MotherNatureThread.rainSteps = MotherNatureSettings.rainInterval / 5;
 
             player.sendMessage( ChatColor.AQUA + "It is now thundering!" );
         } else {

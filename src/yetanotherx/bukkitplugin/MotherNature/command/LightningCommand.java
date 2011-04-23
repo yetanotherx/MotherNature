@@ -21,30 +21,29 @@ public class LightningCommand implements CommandExecutor {
 
         Player player = (Player) sender;
 
-	if( MotherNaturePermissions.has( player, "mothernature.command.lightning" ) ) {
+        if (MotherNaturePermissions.has(player, "mothernature.command.lightning")) {
 
-            if( args.length > 1 ) {
-                Player target = null;
-                for( Player worldplayer : player.getWorld().getPlayers() ) {
-                    if( worldplayer.getName().equalsIgnoreCase(args[1])) {
-                        target = worldplayer;
-                    }
-                }
-                if( target == null ) {
+            if (args.length > 1) {
+                Player target = player.getServer().getPlayer(args[1]);
+                
+                if (target == null) {
                     player.sendMessage(ChatColor.RED + "That player is not online.");
                 }
 
                 player.getWorld().strikeLightning(target.getLocation());
-                player.sendMessage( ChatColor.AQUA + "Boom! A bolt of lightning shoots from the sky and hits " + target.getName() );
+                player.sendMessage(ChatColor.AQUA + "Boom! A bolt of lightning shoots from the sky and hits " + target.getName());
+                target.sendMessage(ChatColor.DARK_RED + "You have been smited by " + player.getName() + "!");
+
+            } else {
+                return false;
             }
 
-            
+
         } else {
             player.sendMessage(ChatColor.RED + "You do not have permission to use this command.");
         }
 
-	return true;
+        return true;
 
     }
-
 }

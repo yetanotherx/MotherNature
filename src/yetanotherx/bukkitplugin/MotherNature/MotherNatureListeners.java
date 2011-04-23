@@ -35,7 +35,6 @@ public class MotherNatureListeners {
         listener.registerEvent(Event.Type.PLAYER_QUIT, "player", Event.Priority.Monitor);
         listener.registerEvent(Event.Type.PLAYER_TELEPORT, "player", Event.Priority.Monitor);
         listener.registerEvent(Event.Type.PLAYER_MOVE, "player", Event.Priority.Monitor);
-        
 
         return listener;
     }

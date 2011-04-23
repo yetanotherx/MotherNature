@@ -23,6 +23,7 @@ public class SunCommand implements CommandExecutor {
         Player player = (Player) sender;
 
 	if( MotherNaturePermissions.has( player, "mothernature.command.sun" ) ) {
+
             player.getWorld().setStorm(false);
             player.getWorld().setThundering(false);
 
@@ -32,6 +33,7 @@ public class SunCommand implements CommandExecutor {
             MotherNatureThread.rainIntSteps = 0;
 
             player.sendMessage( ChatColor.AQUA + "The clouds clear!" );
+            
         } else {
             player.sendMessage(ChatColor.RED + "You do not have permission to use this command.");
         }

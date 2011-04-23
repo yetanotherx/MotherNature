@@ -67,7 +67,7 @@ public class Carpet {
 		for(int i = 0; i < fibers.length; i++)
 		{
 			bl = fibers[i].block;
-			if (fibers[i].block != null && (fibers[i].block.getType().equals(Material.WOOD) || fibers[i].block.getType().equals(Material.WOOD_STAIRS)))
+			if (fibers[i].block != null && (fibers[i].block.getType().equals(Material.WOOD) || fibers[i].block.getType().equals(Material.GLOWSTONE)))
 					bl.setType(Material.AIR);
 			fibers[i].block = null;
 		}
@@ -90,11 +90,8 @@ public class Carpet {
 						if(!glowCenter){
 							if(fibers[i].x == rad || fibers[i].x == -rad || fibers[i].z == rad || fibers[i].z == -rad)
 								bl.setType(Material.WOOD_STAIRS);
-							else
-								bl.setType(Material.WOOD);
-						}else{
-							if(fibers[i].x == 0 && fibers[i].z == 0){
-								bl.setType(Material.WOOD_STAIRS);
+							else if(fibers[i].x == 0 && fibers[i].z == 0){
+								bl.setType(Material.GLOWSTONE);
 							}else{
 								bl.setType(Material.WOOD);
 							}

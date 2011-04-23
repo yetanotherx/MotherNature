@@ -31,22 +31,22 @@ public class MotherNaturePlayerListener extends PlayerListener {
                 }
             }
         }
+        
     }
 
     @Override
-    //When a player quits, it removes the carpet from the server
     public void onPlayerQuit(PlayerQuitEvent event) {
-        Player player = event.getPlayer();
-        Carpet carpet = (Carpet) MotherNature.umbrellas.get(player.getName());
-        if (carpet == null) {
-            return;
+        Carpet carpet = MotherNature.umbrellas.get(event.getPlayer().getName());
+        
+        if (carpet != null) {
+            carpet.removeCarpet();
         }
-        carpet.removeCarpet();
+
     }
 
     @Override
-    //Lets the carpet move with the player
     public void onPlayerMove(PlayerMoveEvent event) {
+
         Location to = event.getTo().clone();
         Location from = event.getFrom().clone();
         Player player = event.getPlayer();
@@ -55,16 +55,16 @@ public class MotherNaturePlayerListener extends PlayerListener {
         if (carpet == null) {
             return;
         }
+
         to.setY(to.getY() + 4);
         from.setY(from.getY() + 4);
 
-        if (from.getBlockX() == to.getBlockX()
-                && from.getBlockY() == to.getBlockY()
-                && from.getBlockZ() == to.getBlockZ()) {
+        if (from.getBlockX() == to.getBlockX() && from.getBlockY() == to.getBlockY() && from.getBlockZ() == to.getBlockZ()) {
             return;
         }
 
         carpet.removeCarpet();
+        
         if (MotherNaturePermissions.has(player, "mothernature.command.umbrella")) {
             carpet.currentBlock = to.getBlock();
             carpet.drawCarpet();
@@ -75,20 +75,19 @@ public class MotherNaturePlayerListener extends PlayerListener {
 
     @Override
     public void onPlayerTeleport(PlayerTeleportEvent event) {
+
         Location to = event.getTo().clone();
         Player player = event.getPlayer();
-        // Check if the player has a carpet
+        
         Carpet carpet = (Carpet) MotherNature.umbrellas.get(player.getName());
         if (carpet == null) {
             return;
         }
 
-        // Check if the player moved 1 block
         to.setY(to.getY() + 4);
         Location last = carpet.currentBlock.getLocation();
-        if (last.getBlockX() == to.getBlockX()
-                && last.getBlockY() == to.getBlockY()
-                && last.getBlockZ() == to.getBlockZ()) {
+
+        if (last.getBlockX() == to.getBlockX() && last.getBlockY() == to.getBlockY() && last.getBlockZ() == to.getBlockZ()) {
             return;
         }
 
@@ -96,6 +95,7 @@ public class MotherNaturePlayerListener extends PlayerListener {
         carpet.removeCarpet();
         carpet.currentBlock = to.getBlock();
         carpet.drawCarpet();
+        
     }
 
 }

@@ -25,11 +25,11 @@ public class RainCommand implements CommandExecutor {
 
         if (MotherNaturePermissions.has(player, "mothernature.command.rain")) {
 
-            if (args.length > 1) {
-                
+            if (args.length > 1 && false) {
+                //TODO: Allow customizing the duration
             } else {
                 player.getWorld().setStorm(true);
-                MotherNatureThread.rainSteps = MotherNatureSettings.rainInterval;
+                MotherNatureThread.rainSteps = MotherNatureSettings.rainInterval; //Essentially disable the automatic storm
                 player.sendMessage( ChatColor.AQUA + "It is now raining!" );
             }
 

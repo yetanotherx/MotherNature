@@ -27,13 +27,13 @@ public class HelpCommand implements CommandExecutor {
 
             ArrayList<String> commands = MotherNatureHelp.getMessages(player);
 
-
             for (String commandString : commands) {
-                player.sendMessage(commandString);
+                player.sendMessage( commandString );
             }
 
-        } else {
-            player.sendMessage(ChatColor.RED + "You do not have permission to use this command.");
+        }
+        else {
+            player.sendMessage( ChatColor.RED + "You do not have permission to use this command." );
         }
 
 

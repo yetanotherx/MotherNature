@@ -14,8 +14,8 @@ public class MotherNatureSettings {
 
     public static int rainLength = 2*60; //2 minutes
     public static int rainInterval = 10*60; //10 minutes
-    public static int thunderLength = 30; //30 seconds
-    public static int thunderInterval = 60; //1 minutes
+    public static int thunderLength = 1*60; //1 minutes
+    public static int thunderInterval = 15*60; //16 minutes
 
     public static int lightningWand = 317;
 

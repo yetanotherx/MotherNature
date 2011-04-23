@@ -42,14 +42,15 @@ public class UmbrellaCommand implements CommandExecutor {
                     }
                 }
 
-                Carpet newCarpet = new Carpet(true);
+                Carpet newCarpet = new Carpet(false);
 
-                Location tempLocation = player.getLocation();
+                Location tempLocation = player.getLocation().clone();
                 tempLocation.setY(tempLocation.getBlockY() + 4);
 
                 newCarpet.currentBlock = tempLocation.getBlock();
                 newCarpet.setSize(size);
                 newCarpet.setLights(true);
+                newCarpet.drawCarpet();
 
 
                 player.sendMessage( ChatColor.AQUA + "Your head is now dry!" );
